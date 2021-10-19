@@ -20,9 +20,9 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('documentUpload'); //string for now but will need 
                                               //to allow for uploads of files
-            $table->integer('no.OfViews');
-            $table->integer('no.OfComments'); //each comment will be an instance on 'comment'
-            $table->integer('no.OfReviews');
+            $table->integer('numOfViews')->defult(0);
+            $table->integer('numOfComments')->defult(0); //each comment will be an instance on 'comment'
+            $table->integer('numOfReviews')->defult(0);
             $table->timestamps();
         });
     }

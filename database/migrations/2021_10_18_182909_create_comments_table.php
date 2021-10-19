@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('authorID');
             $table->string('postID');
             $table->string('commentContent');
-            $table->integer('no.OfComments');
+            $table->integer('numOfComments')->default(0);
             $table->timestamps();
         });
     }
