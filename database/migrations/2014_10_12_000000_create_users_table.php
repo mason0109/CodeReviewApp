@@ -17,11 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('backgroundColour')->default('#ffffff');
-            $table->string('textColour')->default('#000000');
-            $table->string('programmingExperience')->default("Average Programing Experience");
             $table->rememberToken();
             $table->timestamps();
         });
