@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('authorID')->unsigned();
+            $table->unsignedInteger('authorID');
             $table->string('title');
             $table->string('description');
             $table->string('documentUpload'); //string for now but will need 
@@ -24,6 +24,9 @@ class CreatePostsTable extends Migration
             $table->integer('numOfComments')->default(0); 
             $table->integer('numOfReviews')->default(0);
             $table->timestamps();
+
+            // $table->foreign('authorID')->references('id')->
+            //     on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

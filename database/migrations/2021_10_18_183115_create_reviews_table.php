@@ -15,8 +15,8 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('postID');
-            $table->integer('authorID');
+            $table->unsignedInteger('postID');
+            $table->unsignedInteger('authorID');
             $table->string('reviewContent'); //this would ideally be a text file
             $table->timestamps();
         });

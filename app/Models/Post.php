@@ -18,4 +18,5 @@ class Post extends Model
         'numOfComments',
         'numOfReviews',
     ];
+
 }

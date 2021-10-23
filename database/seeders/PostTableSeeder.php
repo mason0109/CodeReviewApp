@@ -20,5 +20,7 @@ class PostTableSeeder extends Seeder
         $p->description = 'THis is a description';
         $p->documentUpload = 'Upload doc here';
         $p->save();
+
+        $posts = Post::factory()->count(10)->create();
     }
 }

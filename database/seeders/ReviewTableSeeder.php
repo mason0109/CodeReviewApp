@@ -19,5 +19,7 @@ class ReviewTableSeeder extends Seeder
         $r->authorID = 001;
         $r->reviewContent = 'This is a review';
         $r->save();
+
+        $reviews = Review::factory()->count(10)->create();
     }
 }
