@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->integer('postID');
             $table->integer('authorID');
-            $table->text('review content'); //this would ideally be a text file
+            $table->string('reviewContent'); //this would ideally be a text file
             $table->timestamps();
         });
     }

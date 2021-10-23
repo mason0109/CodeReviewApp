@@ -15,14 +15,14 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('userID');
+            $table->integer('authorID')->unsigned();
             $table->string('title');
             $table->string('description');
             $table->string('documentUpload'); //string for now but will need 
                                               //to allow for uploads of files
-            $table->integer('numOfViews')->defult(0);
-            $table->integer('numOfComments')->defult(0); //each comment will be an instance on 'comment'
-            $table->integer('numOfReviews')->defult(0);
+            $table->integer('numOfViews')->default(0);
+            $table->integer('numOfComments')->default(0); 
+            $table->integer('numOfReviews')->default(0);
             $table->timestamps();
         });
     }

@@ -13,5 +13,6 @@ class Comment extends Model
         'authorID',
         'postID',
         'commentContent',
+        'numOfComments'
     ];
 }

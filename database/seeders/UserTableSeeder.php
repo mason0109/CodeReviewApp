@@ -18,5 +18,6 @@ class UserTableSeeder extends Seeder
         $u->username = "masoni";
         $u->email = "986832@swansea.ac.uk";
         $u->password = "password";
+        $u->save();
     }
 }

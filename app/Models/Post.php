@@ -10,9 +10,12 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'userID',
+        'authorID',
         'title',
         'description',
         'documentUpload',
+        'numOfViews',
+        'numOfComments',
+        'numOfReviews',
     ];
 }
