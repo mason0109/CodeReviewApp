@@ -10,8 +10,8 @@ class Reply extends Model
     use HasFactory;
 
     protected $fillable = [
-        'authorID',
-        'commentID',
+        'author_id',
+        'comment_id',
         'replyContent',
     ];
 }

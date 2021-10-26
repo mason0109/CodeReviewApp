@@ -31,4 +31,17 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    /**
+     * Gets the posts from the user.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 }

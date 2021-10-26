@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'authorID',
+        'user_id',
         'title',
         'description',
         'documentUpload',
@@ -19,4 +19,21 @@ class Post extends Model
         'numOfReviews',
     ];
 
+    /**
+     * Get the user of the post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+   
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

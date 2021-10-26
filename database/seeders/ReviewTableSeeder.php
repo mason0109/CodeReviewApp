@@ -15,8 +15,8 @@ class ReviewTableSeeder extends Seeder
     public function run()
     {
         $r = new Review;
-        $r->postID = 002;
-        $r->authorID = 001;
+        $r->post_id = 002;
+        $r->user_id = 001;
         $r->reviewContent = 'This is a review';
         $r->save();
 

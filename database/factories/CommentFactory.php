@@ -22,8 +22,8 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'authorID' => $this->faker->unique()->numberBetween(1,100),
-            'postID' => $this->faker->unique()->numberBetween(1,100),
+            'user_id' => $this->faker->numberBetween(1,10),
+            'post_id' => $this->faker->numberBetween(1,10),
             'commentContent' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
             'numOfComments' => $this->faker->randomNumber($nbDigits = NULL),
         ];

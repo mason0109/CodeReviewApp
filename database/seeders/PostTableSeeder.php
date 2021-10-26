@@ -14,13 +14,6 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        $p = new Post;
-        $p->authorID = 001;
-        $p->title = 'This is a title';
-        $p->description = 'THis is a description';
-        $p->documentUpload = 'Upload doc here';
-        $p->save();
-
         $posts = Post::factory()->count(10)->create();
     }
 }

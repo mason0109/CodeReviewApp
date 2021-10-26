@@ -22,8 +22,8 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'postID' => $this->faker->unique()->numberBetween(1,100),
-            'authorID' => $this->faker->unique()->numberBetween(1,100),
+            'post_id' => $this->faker->numberBetween(1,10),
+            'user_id' => $this->faker->numberBetween(1,10),
             'reviewContent' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
         ];
     }

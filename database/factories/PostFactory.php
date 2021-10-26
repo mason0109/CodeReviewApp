@@ -22,10 +22,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'authorID' => $this->faker->unique()->numberBetween(1,100),
+            'user_id' => $this->faker->numberBetween(1,10),
             'title' => $this->faker->unique()->realtext($maxNbChars = 100, $indexSize = 2),
             'description' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
-            'documentUpload' => $this->faker->randomNumber($nbDigits = 1),
+            'documentUpload' => $this->faker->realtext($maxNbChars = 50, $indexSize = 2),
             'numOfViews' => $this->faker->randomNumber($nbDigits = NULL),
             'numOfComments' => $this->faker->randomNumber($nbDigits = NULL),
             'numOfReviews' => $this->faker->randomNumber($nbDigits = NULL),
