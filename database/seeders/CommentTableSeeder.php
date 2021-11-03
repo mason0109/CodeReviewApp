@@ -14,12 +14,10 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
-        $c = new Comment;
-        $c->user_id = 001;
-        $c->post_id = 002;
-        $c->commentContent = 'This is a comment';
-        $c->save();
-
         $comments = Comment::factory()->count(10)->create();
+        $comments = Comment::factory()->count(10)->create([
+            'commentable_id'=>Comment::all()->random()->id,
+            'commentable_type'=>Comment::class,
+        ]);
     }
 }
