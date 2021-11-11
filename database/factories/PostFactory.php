@@ -23,6 +23,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1,10),
+            //'user_id' => User::inRandomOrder()->first->id,
             'title' => $this->faker->unique()->realtext($maxNbChars = 100, $indexSize = 2),
             'description' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
             'documentUpload' => $this->faker->realtext($maxNbChars = 50, $indexSize = 2),

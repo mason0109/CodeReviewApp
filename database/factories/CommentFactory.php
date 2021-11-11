@@ -24,7 +24,7 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1,10),
-            //'post_id' => $this->faker->numberBetween(1,10),
+            //'user_id' => User::all()->random(),id,
             'commentable_id' => Post::all()->random()->id,
             'commentable_type' => Post::class,
             'commentContent' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
