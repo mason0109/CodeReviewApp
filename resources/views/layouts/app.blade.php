@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="../css/app.css">
 
-        <title>Code Review @yield('title') </title>
+        <title>@yield('title') </title>
     </head>
     <body>
         <h1> @yield('title')</h1>
