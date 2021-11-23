@@ -12,8 +12,10 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         //
+        $comment = comment::all(); 
+        return view('comments.index', ['comments' => $comments]);
     }
 
     /**
