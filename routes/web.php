@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,13 @@ Route::get('/profile/{user}', function($user){
 });
 
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/users/{id}', [UserController::class, 'show']);
+
+Route::get('/posts', [PostController::class, 'index']);
+
+Route::get('/posts/{id}', [PostController::class, 'show']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
