@@ -85,4 +85,10 @@ class UserController extends Controller
     {
         //
     }
+
+    public function apiIndex()
+    {
+        $users = User::all();
+        return $users;
+    }
 }

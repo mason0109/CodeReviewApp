@@ -32,6 +32,10 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/{id}', [PostController::class, 'show']);
 
+Route::get('/register', function(){
+    return view('register');
+})
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
