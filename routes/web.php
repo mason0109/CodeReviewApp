@@ -32,13 +32,12 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/{id}', [PostController::class, 'show']);
 
-Route::get('/register', function(){
-    return view('register');
-})
+Route::get('/newAcc', function(){
+    return view('reg');
+});
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/home', function(){
+    return view('home');
+});
 
 require __DIR__.'/auth.php';

@@ -10,7 +10,7 @@
             <p> Username:  <input type="text" id="username"> </p>
             <p> Password: <input type="test" id="password"> </p>
             <button @click="Sign In" id="signInButton">Sign In</button>
-            <button @click="Register" id="regButton">Register</button>
+            <button @click="Register" id="reg">Register</v-btn>
     </div> 
 </div>
 
@@ -24,10 +24,19 @@
             padding: 90px;
             background-color: pink;
         }
-        .regButton{
-            padding-right: 40px;
-        }
     </style>
+
+    <script>
+        var app = new Vue({
+            methods:
+                Sign In: function(event{
+                    router.push("/profile");
+                });
+                Register: function(event{
+
+                });
+        })
+        </script>
        
     
 @endsection
