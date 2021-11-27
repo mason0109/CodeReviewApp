@@ -12,6 +12,6 @@ class Reply extends Model
     protected $fillable = [
         'author_id',
         'comment_id',
-        'replyContent',
+        'reply_content',
     ];
 }

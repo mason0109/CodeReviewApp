@@ -12,14 +12,56 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <style>
-        
-    </style>
-
-        <h1> @yield('header')</h1>
+        <div class = "header">
+            <h1 style = "text-align: left"> @yield('header')</h1>
+        </div>
+        <div class="menu">
+            <div class = "menu-item">
+                Profile
+            </div>
+            <div class="menu-item">
+                Search for posts
+            </div>
+            <div class="menu-item">
+                Search for users
+            </div>
+        </div>
 
         <div>
             @yield('content')
         </div> 
-    </body> 
+
+    </body>
+
+    <style>
+        .menu{
+            display: flex;
+            background-color: #BBEEDD;
+        }
+        .menu-item{
+            padding: 6px;
+            margin: 5px;
+        }
+        .header{
+            margin: 0px;
+            background-color: #BBEEDD;
+            padding: 2px;
+        }
+        .post-display{
+            border: 2px solid black;
+            padding: 6px;
+            margin: 10px;
+        }
+        .post-bottom{
+            display: flex;
+        }
+        .bottom-item{
+            padding: 5px;
+        }
+        .body{
+            background-color: #BBEEDD;
+        }
+    </style>
+
+ 
 </html> 

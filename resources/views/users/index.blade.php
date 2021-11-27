@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('header', "Welcome to Code Review.Com")
+
 @section('content')
         <h1> All users online?? </h1>
         <div id="allusers">

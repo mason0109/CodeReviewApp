@@ -17,8 +17,8 @@ class PostTableSeeder extends Seeder
         $p = new Post;
         $p->title = 'New Post';
         $p->description = 'Post Description';
-        $p->documentUpload = 'Upload here';
-        $p->numOfViews = 10;
+        $p->document_upload = 'Upload here';
+        $p->num_of_likes = 10;
         $p->user_id = 1;
         $p->save();
         

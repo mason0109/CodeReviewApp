@@ -17,7 +17,7 @@ class ReviewTableSeeder extends Seeder
         $r = new Review;
         $r->post_id = 1;
         $r->user_id = 1;
-        $r->reviewContent = 'This is a review';
+        $r->review_content = 'This is a review';
         $r->save();
 
         $reviews = Review::factory()->count(10)->create();

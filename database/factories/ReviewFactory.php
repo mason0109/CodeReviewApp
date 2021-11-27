@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Review;
+use App\Models\Post;
+use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReviewFactory extends Factory
@@ -22,9 +25,9 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => $this->faker->numberBetween(1,10),
-            'user_id' => $this->faker->numberBetween(1,10),
-            'reviewContent' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
+            'post_id' => Post::all()->random()->id,
+            'user_id' => User::all()->random()->id,
+            'review_content' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
         ];
     }
 }

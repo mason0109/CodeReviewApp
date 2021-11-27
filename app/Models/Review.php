@@ -12,7 +12,7 @@ class Review extends Model
     protected $fillable = [
         'post_id',
         'user_id',
-        'reviewContent',
+        'review_content',
     ];
 
     public function post()

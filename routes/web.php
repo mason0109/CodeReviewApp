@@ -18,7 +18,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/profile/{user}', function($user){
     return view('profile', ['user' => $user]);
@@ -34,10 +34,8 @@ Route::get('/posts/{id}', [PostController::class, 'show']);
 
 Route::get('/newAcc', function(){
     return view('reg');
-});
+})->name('reg');;
 
-Route::get('/home', function(){
-    return view('home');
-});
+Route::get('/home', [PostController::class, 'index']);
 
 require __DIR__.'/auth.php';

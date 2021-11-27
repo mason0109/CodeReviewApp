@@ -13,10 +13,10 @@ class Post extends Model
         'user_id',
         'title',
         'description',
-        'documentUpload',
-        'numOfViews',
-        'numOfComments',
-        'numOfReviews',
+        'document_upload',
+        'num_of_likes',
+        'num_of_comments',
+        'num_of_reviews',
     ];
 
     /**

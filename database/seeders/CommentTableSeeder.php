@@ -16,7 +16,7 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         $c = new Comment;
-        $c->commentContent = 'This post looks great!';
+        $c->comment_content = 'This post looks great!';
         $c->user_id = 1;
         $c->commentable_id = Post::all()->random()->id;
         $c->commentable_type = Post::class;

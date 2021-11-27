@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('reviewContent'); //this would ideally be a text file
+            $table->string('review_content'); //this would ideally be a text file
             $table->timestamps();
 
             $table->foreign('post_id')->references('id')->on('posts')

@@ -17,11 +17,11 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('documentUpload'); //string for now but will need 
+            $table->string('document_upload'); //string for now but will need 
                                               //to allow for uploads of files
-            $table->integer('numOfViews')->default(0);
-            $table->integer('numOfComments')->default(0); 
-            $table->integer('numOfReviews')->default(0);
+            $table->integer('num_of_likes')->default(0);
+            $table->integer('num_of_comments')->default(0); 
+            $table->integer('num_of_reviews')->default(0);
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');

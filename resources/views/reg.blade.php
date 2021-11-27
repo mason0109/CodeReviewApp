@@ -1,8 +1,4 @@
-@extends('layouts.app')
 
-@section('title', 'register')
-
-@section('content')
 <div class="bg-cover bg-center backgroundImage">
     <div id = "welcome" class="center">
         <h1 style="text-align: center"> Please register below!</h1>
@@ -11,8 +7,7 @@
             <p> email: <input type="text" id="email"> </p>
             <button @click="Register" id="regButton">Register</button>
 
-            <!--- this doesn't work --->
-            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+            <a href="{{ route('welcome') }}">
                     {{ __('Already registered?') }}
             </a>
     </div> 
@@ -32,4 +27,3 @@
             padding-right: 40px;
         }
     </style>
-@endsection
