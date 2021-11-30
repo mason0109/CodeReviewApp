@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\MHttp\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/users', [UserController::class, 'apiIndex']) ->name('api.users.inde
 
 Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
 
+Route::post('/home', [UserController::class, 'apiStore']) ->name('api.users.store');
+
+Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');

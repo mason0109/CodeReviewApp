@@ -83,4 +83,13 @@ class CommentController extends Controller
     {
         //
     }
+
+    public function apiStore(Request $request){
+        $c = new Comment();
+        $c->author_id=$request['author_id'];
+        $c->comment_content=$request['comment_content'];
+        $c->num_of_comments=0;
+        $c->save();
+        return $c;
+    }
 }

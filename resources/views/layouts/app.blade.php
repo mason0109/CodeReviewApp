@@ -61,6 +61,11 @@
         .body{
             background-color: #BBEEDD;
         }
+        .postButton{
+            height: 15px;
+            font-size:10px;
+            margin: 5px;
+        }
     </style>
 
  

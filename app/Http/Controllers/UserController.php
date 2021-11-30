@@ -91,4 +91,15 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
+
+    public function apiStore(Request $request)
+    {
+        $u = new User();
+        $u->name=$request['name'];
+        $u->username=$request['username'];
+        $u->password=$request['password'];
+        $u->email=$request['email'];
+        $u->save();
+
+    }
 }
