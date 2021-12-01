@@ -75,16 +75,6 @@
                 comment:function(){
                     alert("make comment");
 
-                    // axios.post("{{route('api.comments.store')}}", {
-                    //     comment_content: this.newComment }) 
-                    //     .then(response => {
-                    //         this.comments.push(response.data);
-                    //         this.newComment='';
-                    //     })
-                    //     .catch(reponse=>{
-                    //         console.log(response);
-                    //     });
-                    // }
                 }
             }
         });

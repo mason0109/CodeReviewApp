@@ -23,13 +23,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users', [UserController::class, 'apiIndex']) ->name('api.users.index');
 
-Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
-
-Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');
 
 // Route::get('/profile/{id}', function($user) {
 //     [UserController::class, 'apiUserPosts'];
 // }) ->name('api.users.userPosts');
+
+Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
+
+Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');
 
 Route::get('/profile/{id}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');
 

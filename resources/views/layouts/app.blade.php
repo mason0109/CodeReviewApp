@@ -21,6 +21,9 @@
         <div class = "menu-row">
             <div class="menu">
                 <div class="menu-item">
+                    Home 
+                </div>
+                <div class="menu-item">
                     Search for posts
                 </div>
                 <div class="menu-item">
@@ -107,19 +110,7 @@
     </style>
 
     <scirpt>
-        var app = new Vue ({
-                el: "#allposts",
-                data: {
-                    posts: [],
-                    comments: [],
-                    newComment: '',
-                }, 
-                methods:{
-                    alert("go to profile")
-                    viewProfile:function(){
-                        //
-                    }
-                }
+        
     </scirpt>
 
 
