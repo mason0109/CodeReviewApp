@@ -28,3 +28,9 @@ Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index
 Route::post('/home', [UserController::class, 'apiStore']) ->name('api.users.store');
 
 Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');
+
+// Route::get('/profile/{id}', function($user) {
+//     [UserController::class, 'apiUserPosts'];
+// }) ->name('api.users.userPosts');
+
+Route::get('/profile/{id}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');

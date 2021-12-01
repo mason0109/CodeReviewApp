@@ -102,4 +102,10 @@ class UserController extends Controller
         $u->save();
 
     }
+
+    public function apiUserPosts($id)
+    {
+        $posts = User::find($id)->posts;
+        return view('profile', ['posts' => $posts]);
+    }
 }

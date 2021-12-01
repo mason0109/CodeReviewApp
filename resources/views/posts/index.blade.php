@@ -22,25 +22,26 @@
                         <div class = "bottom-item">
                             Likes: @{{post.num_of_likes}}
                             <div class = "postButton">
-                            <button @click="increaseLike()" id="likeButton">Like</button>
+                                <button @click="increaseLike()" id="likeButton">Like</button>
                             </div>
                         </div>
                         <div class = "bottom-item">
                             Reviews: @{{post.num_of_reviews}}
                             <div class = "postButton">
-                            <button @click="review" id="reviewButton">Review Post</button>
+                                <button @click="review" id="reviewButton">Review Post</button>
                             </div>
                         </div>
                         <div class = "bottom-item">
-                        Comments: @{{post.num_of_comments}}
-                        <button @click="showComments" id="allComments" v-model="allComments">View all</button>
-                        <div class = "postButton">
-                        <input type="text" id="commentbox" v-model="newComment">
-                        <button @click="comment" id="commentButton">Comment</button>
+                            Comments: @{{post.num_of_comments}}
+                            <div class = "postButton">
+                                <button @click="showComments" id="allComments">View all</button>
+                            
+                            
+                                <input type="text" id="commentbox" v-model="newComment">
+                                <button @click="comment" id="commentButton">Comment</button>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    
                 </div>
             </li>
         </ul>
