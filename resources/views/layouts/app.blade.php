@@ -106,5 +106,22 @@
         }
     </style>
 
+    <scirpt>
+        var app = new Vue ({
+                el: "#allposts",
+                data: {
+                    posts: [],
+                    comments: [],
+                    newComment: '',
+                }, 
+                methods:{
+                    alert("go to profile")
+                    viewProfile:function(){
+                        //
+                    }
+                }
+    </scirpt>
+
+
  
 </html> 

@@ -28,7 +28,7 @@
             newEmail: '',
         },
         methods:{
-            Register:function(){
+            Register:function(){=
                 //gets to here but stops??
                 axios.post("{{route('api.users.store')}}", {
                     name: this.newName,
