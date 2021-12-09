@@ -4,10 +4,9 @@
     @section('title', 'CodeReviewProfile')
 
     @section('content')
-        @if ($user)
             <div class="p-3 mb-2 bg-info text-white profile-header">
             <img src = "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class = "img">
-            <h2 class="p-3 mb-2 bg-info text-white">{{$user}}'s Profile</h2>
+            <h2 class="p-3 mb-2 bg-info text-white">{{$user->username}}'s Profile</h2>
             </div>
             <div id="alluserposts">
                 <ul>
@@ -60,7 +59,7 @@
                 }, 
             mounted() {
             
-            axios.get('/profile/{id}', {id => $user->id})
+            axios.get('/profile/{user}', {user => $user})
                 .then(response=>{
                     this.posts = response.data;
                 })
@@ -83,11 +82,5 @@
             }
         });
     </script>     
-
-
-        @else
-            <h1> User not found </h1>
-        @endif
-
     @endsection
 </html>

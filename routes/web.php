@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/profile/{user}', function($user){
-    return view('profile', ['user' => $user]);
-});
+Route::get('/profile/{id}', [UserController::class, 'show']);
 
 Route::get('/users', [UserController::class, 'index']);
 

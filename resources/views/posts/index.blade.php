@@ -39,6 +39,7 @@
                             
                                 <input type="text" id="commentbox" v-model="newComment">
                                 <button @click="comment" id="commentButton">Comment</button>
+                                <button @click = "deletePost" id = "delete-post">Delete post </button>
                             </div>
                         </div>
                     </div>

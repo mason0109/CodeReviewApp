@@ -49,7 +49,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('users.show', ['user' => $user]);
+        return view('profile', ['user' => $user]);
     }
 
     /**
@@ -105,7 +105,7 @@ class UserController extends Controller
 
     public function apiUserPosts($id)
     {
-        $posts = User::find($id)->posts;
+        $posts = User::findOrFail($id)->posts();
         return view('profile', ['posts' => $posts]);
     }
 }
