@@ -101,6 +101,10 @@ class UserController extends Controller
         //
     }
 
+    public function auth(){
+        return view('posts.index');
+    }
+
     public function apiIndex()
     {
         $users = User::all();

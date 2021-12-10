@@ -22,17 +22,10 @@
                             @{{ post.upload }}
                         </div>
                         <div class="postButton card-footer text-muted">
-                            
-                                Likes: @{{post.num_of_likes}}
-                                
-                                <button @click="increaseLike()" id="likeButton">Like</button>
-                                
-                            
-                                Reviews: @{{post.num_of_reviews}}
-                                
-                                    <button @click="review" id="reviewButton">Review Post</button>
-                                
-                            
+                            Likes: @{{post.num_of_likes}}
+                            <button @click="increaseLike()" id="likeButton">Like</button>
+                            Reviews: @{{post.num_of_reviews}}
+                            <button @click="review" id="reviewButton">Review Post</button>
                         </div>  
                     </div>
                 </div>
@@ -43,7 +36,14 @@
                     </div>
                     <div class="card-body ">
                         <div class = "comments">
-                            fuck knows
+                            <div v-for="comment in comments">
+                                <div class = "comment-auhtor">
+                                    @{{comment.author_id}}:
+                                </div>  
+                                <div class = "comment-content">
+                                    @{{comment.comment_content}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class = "postButton card-footer text-muted">
@@ -67,14 +67,14 @@
                 }, 
             mounted() {
 
-            axios.get("{{route('api.posts.index')}}")
-                .then(response=>{
-                    this.posts = response.data;
-                })
-                .catch(response=>{
-                    console.log(response);
-                })
-            },
+                axios.get("{{route('api.posts.index')}}")
+                    .then(response=>{
+                        this.posts = response.data;
+                    })
+                    .catch(response=>{
+                        console.log(response);
+                    })
+                },
         
             methods:{
                 increaseLike:function(){

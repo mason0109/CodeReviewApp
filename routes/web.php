@@ -35,6 +35,10 @@ Route::post('/users', [UserController::class, 'store']) ->name('users.store');
 
 Route::get('/users/{id}', [UserController::class, 'show']);
 
-Route::get('/home', [PostController::class, 'index']) ->name('home');
+//home page
+Route::get('/home', [PostController::class, 'index']) ->middleware(['auth']) ->name('home'); 
+
+//Sign in 
+Route::get('/home', [UserController::class, 'auth']) ->name('user.home');
 
 require __DIR__.'/auth.php';
