@@ -7,7 +7,7 @@
 
             <button @click="Sign In" id="signInButton">Sign In</button>
 
-            <button @click="Register" id="reg"><a href = {{route('reg') }}>Register</a></button>
+            <a href = {{route( 'users.create' )}}>Register</a>
     </div> 
 </div>
 

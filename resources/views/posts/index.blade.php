@@ -6,7 +6,7 @@
     <p> Recent posts...</p>
     <div id="allposts">
         <ul>
-            <li v-for="post in posts">
+            <div v-for="post in posts">
                 <div class="post-display">
                     <div class="post-title">
                     <u> @{{ post.title }}  </u>
@@ -34,17 +34,20 @@
                         <div class = "bottom-item">
                             Comments: @{{post.num_of_comments}}
                             <div class = "postButton">
-                                <button @click="showComments" id="allComments">View all</button>
-                            
                             
                                 <input type="text" id="commentbox" v-model="newComment">
                                 <button @click="comment" id="commentButton">Comment</button>
-                                <button @click = "deletePost" id = "delete-post">Delete post </button>
                             </div>
                         </div>
                     </div>
+                    <div class = "commentsection">
+                    Comments
+                    <div class = "comments">
+                        fuck knows
+                    </div>
                 </div>
-            </li>
+                </div>
+            </div>
         </ul>
     </div>
 
@@ -66,6 +69,7 @@
                     console.log(response);
                 })
             },
+        
             methods:{
                 increaseLike:function(){
                     alert("increase like")

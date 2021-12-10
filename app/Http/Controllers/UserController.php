@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +37,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:225'],
+            'username' => ['required', 'max:225', 'unique:users,username'],
+            'password'=> ['required', 'max:150'],
+            'email' => ['required', 'max:225', 'unique:users,email', 'email:rfc,dns'],
+        ]);
+
+        $u = new User();
+        $u->name = $validatedData['name'];
+        $u->username = $validatedData['username'];
+        $u->password = $validatedData['password'];
+        $u->email = $validatedData['email'];
+        $u->save();
+
+        session()->flash('Message', 'Account created!');
+        return redirect()->route('home');
     }
 
     /**
@@ -92,20 +107,9 @@ class UserController extends Controller
         return $users;
     }
 
-    public function apiStore(Request $request)
-    {
-        $u = new User();
-        $u->name=$request['name'];
-        $u->username=$request['username'];
-        $u->password=$request['password'];
-        $u->email=$request['email'];
-        $u->save();
-
-    }
-
     public function apiUserPosts($id)
     {
         $posts = User::findOrFail($id)->posts();
-        return view('profile', ['posts' => $posts]);
+        return $posts;
     }
 }

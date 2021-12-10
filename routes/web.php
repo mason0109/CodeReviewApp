@@ -22,18 +22,19 @@ Route::get('/', function () {
 
 Route::get('/profile/{id}', [UserController::class, 'show']);
 
-Route::get('/users', [UserController::class, 'index']);
-
-Route::get('/users/{id}', [UserController::class, 'show']);
+//Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/{id}', [PostController::class, 'show']);
 
-Route::get('/newAcc', function(){
-    return view('reg');
-})->name('reg');;
+//user creation
+Route::get('/users/create', [UserController::class, 'create']) ->name('users.create');
 
-Route::get('/home', [PostController::class, 'index']);
+Route::post('/users', [UserController::class, 'store']) ->name('users.store');
+
+Route::get('/users/{id}', [UserController::class, 'show']);
+
+Route::get('/home', [PostController::class, 'index']) ->name('home');
 
 require __DIR__.'/auth.php';

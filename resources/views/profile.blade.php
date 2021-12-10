@@ -59,7 +59,7 @@
                 }, 
             mounted() {
             
-            axios.get('/profile/{user}', {user => $user})
+            axios.get('/profile/{id}', {id => $user->id})
                 .then(response=>{
                     this.posts = response.data;
                 })

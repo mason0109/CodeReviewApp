@@ -92,4 +92,9 @@ class CommentController extends Controller
         $c->save();
         return $c;
     }
+
+    public function apiPostComments($id){
+        $comments = Post::findOrFail($id)->comments;
+        return $comments;
+    }
 }

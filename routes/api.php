@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
-use App\MHttp\Controllers\CommentController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users', [UserController::class, 'apiIndex']) ->name('api.users.index');
 
-Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
-
 Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');
 
-Route::get('/profile/{user}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');
+Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
 
-Route::post('/home', [UserController::class, 'apiStore']) ->name('api.users.store');
+Route::get('/profile/{id}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');
+
+//Route::get('/home', [CommentController::class, 'apiPostComments']) ->name('api.comments.index');
