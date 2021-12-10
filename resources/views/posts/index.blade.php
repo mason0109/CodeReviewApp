@@ -7,43 +7,49 @@
     <div id="allposts">
         <ul>
             <div v-for="post in posts">
-                <div class="post-display">
-                    <div class="post-title">
-                    <u> @{{ post.title }}  </u>
-                    <u> by @{{post.user_id}} </u>
+                <div class = "row">
+                    <div class="card mb-3" style="width: 35rem;">
+                        <div class="card-header text-white bg-secondary">
+                        <u> @{{ post.title }}  </u>
+                        <u> by @{{post.user_id}} </u>
                     </div>
-                    <div class="post-description">
-                    @{{post.description}}
-                    </div>
-                    <div class="post-content">
-                    @{{ post.upload }}
-                    </div>
-                    <div class="post-bottom">
-                        <div class = "bottom-item">
-                            Likes: @{{post.num_of_likes}}
-                            <div class = "postButton">
-                                <button @click="increaseLike()" id="likeButton">Like</button>
-                            </div>
+                    
+                    <div class="card-body ">
+                        <div class="post-description">
+                            @{{post.description}}
                         </div>
-                        <div class = "bottom-item">
-                            Reviews: @{{post.num_of_reviews}}
-                            <div class = "postButton">
-                                <button @click="review" id="reviewButton">Review Post</button>
-                            </div>
+                        <div class="post-content">
+                            @{{ post.upload }}
                         </div>
-                        <div class = "bottom-item">
-                            Comments: @{{post.num_of_comments}}
-                            <div class = "postButton">
+                        <div class="postButton card-footer text-muted">
                             
-                                <input type="text" id="commentbox" v-model="newComment">
-                                <button @click="comment" id="commentButton">Comment</button>
-                            </div>
+                                Likes: @{{post.num_of_likes}}
+                                
+                                <button @click="increaseLike()" id="likeButton">Like</button>
+                                
+                            
+                                Reviews: @{{post.num_of_reviews}}
+                                
+                                    <button @click="review" id="reviewButton">Review Post</button>
+                                
+                            
+                        </div>  
+                    </div>
+                </div>
+                
+                <div class ="card mb-3" style="width: 35rem;">
+                    <div class= "card-header text-white bg-secondary">
+                        Comments: @{{post.num_of_comments}}
+                    </div>
+                    <div class="card-body ">
+                        <div class = "comments">
+                            fuck knows
                         </div>
                     </div>
-                    <div class = "commentsection">
-                    Comments
-                    <div class = "comments">
-                        fuck knows
+                    <div class = "postButton card-footer text-muted">
+                            <input type="text" id="commentbox" v-model="newComment">
+                            <button @click="comment" id="commentButton">Comment</button>
+                    </div>
                     </div>
                 </div>
                 </div>

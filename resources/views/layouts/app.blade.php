@@ -31,8 +31,8 @@
                 </div>
                 <div class = "menu-item-left">
                     Notifications icon 
-                    <button class="btn btn-info" @click="viewProfile" id="vewProfileButton"> Profile </button>
-                    <button class="btn btn-info" @click="newPost" id="newPostButton"> Post some code </button>
+                    <button class="btn btn-secondary" @click="viewProfile" id="vewProfileButton"> Profile </button>
+                    <button class="btn btn-secondary" @click="newPost" id="newPostButton"> Post some code </button>
                 </div>
             </div>
         </div>
@@ -81,11 +81,11 @@
         .body{
             background-color: #BBEEDD;
         }
-        .postButton{
+        /* .postButton{
             height: 15px;
             font-size:10px;
             margin: 5px;
-        }
+        } */
         .writeNewPost{
             display: flex;
             height: 30px;
