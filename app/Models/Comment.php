@@ -15,20 +15,20 @@ class Comment extends Model
         'num_of_comments'
     ];
 
-    public function post()
+    public function commentable()
     {
-        return $this->belongsTo(Post::class);
+        return $this->morphTo();
     }
 
     //posts can be commented on
     public function posts()
     {
-        return $this->morphedByMany(Post::class, 'commentable');
+        return $this->morphMany(Post::class, 'commentable');
     }
 
     //Comments can be commented on
     public function comments()
     {
-        return $this->morphedByMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 }
