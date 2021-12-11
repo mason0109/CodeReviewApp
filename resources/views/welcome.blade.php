@@ -10,7 +10,7 @@
                 <p> Username:  <input type="text" id="username"> </p>
                 <p> Password: <input type="test" id="password"> </p>
 
-                <button @click="Sign In" id="signInButton">Sign In</button>
+                <input type="submit" value="sign in">
 
                 <a href = {{route( 'users.create' )}}>Register</a>
             </form>

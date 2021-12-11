@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 class UserController extends Controller
 {
@@ -102,7 +103,8 @@ class UserController extends Controller
     }
 
     public function auth(){
-        return view('posts.index');
+        $posts = Post::all();
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function apiIndex()
