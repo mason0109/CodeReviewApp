@@ -4,16 +4,12 @@
 <div class="bg-cover bg-center backgroundImage">
     <div id = "welcome" class="center">
         <h1 style="text-align: center"> Welcome!</h1>
-            <form method="GET" action="{{ route ('user.home') }}">
-                @csrf
-                <p style="text-align: center"> Sign in or Register an account. </p>
-                <p> Username:  <input type="text" id="username"> </p>
-                <p> Password: <input type="test" id="password"> </p>
+            
+            <p style="text-align: center"> Sign in or Register an account. </p>
 
-                <input type="submit" value="sign in">
+            <a href = {{route( 'login' )}}> Sign In </a>
 
-                <a href = {{route( 'users.create' )}}>Register</a>
-            </form>
+            <a href = {{route( 'users.create' )}}>Register</a>
     </div> 
 </div>
 

@@ -15,14 +15,18 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/dashboard', function(){
+    return view('dashboard');
+}) -> middleware(['auth'])->name('dashboard');
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/logout', '\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
+
 Route::get('/profile/{id}', [UserController::class, 'show']) ->middleware('auth') ->name('user.profile');
 
-//Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
 

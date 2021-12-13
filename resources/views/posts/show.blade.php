@@ -71,13 +71,11 @@
                         .catch(response=>{
                             console.log(response);
                         })
-                    }
-                
-            };
+            },
             methods: {
                 comment: function(){
-                        axios.post("{{route('api.comments.store', ['id' => $post->id ])}}"), {
-                            comment_content: this.newcomment;
+                        axios.post("{{route('api.comments.store', ['id' => $post->id ])}}", {
+                            comment_content: this.newcomment
                         })
                         .then (response=> {
                             this.comments.push(pesponse.data);
@@ -86,9 +84,9 @@
                         .catch(response=>{
                             console.log(response);
                         })
-                    }
                 }
             }
+            
         });
 
         var postbuttons = new Vue ({

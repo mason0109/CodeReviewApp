@@ -32,7 +32,11 @@
                 <div class = "menu-item-left">
                     <a href = "" class="link-dark" >notifications</a>
                     <a href = "{{ route('user.profile', ['id' => 1]) }}" class="link-dark" >Profile</a>
-                    <a href = "{{ route('...', ['id' => 1])" > Post some code </a>
+                    <a href = ""> Post Something </a>
+                    <hr>
+                    <form method="POST" action="{{route('logout')}}">
+                        <input type="submit" value="Log Out">
+                    </form>
                 </div>
             </div>
         </div>
