@@ -29,7 +29,6 @@ class CommentFactory extends Factory
             'commentable_id' => Post::all()->random()->id,
             'commentable_type' => Post::class,
             'comment_content' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
-            'num_of_comments' => $this->faker->randomNumber($nbDigits = NULL),
         ];
     }
 }

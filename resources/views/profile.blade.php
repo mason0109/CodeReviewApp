@@ -59,7 +59,7 @@
                 }, 
             mounted() {
             
-            axios.get('/profile/{id}', {id => $user->id})
+            axios.get("{{route('api.users.userPosts', ['id' => $user->id])}}")
                 .then(response=>{
                     this.posts = response.data;
                 })

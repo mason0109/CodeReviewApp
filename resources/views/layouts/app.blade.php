@@ -21,22 +21,22 @@
         <div class = "menu-row">
             <div class="menu">
                 <div class="menu-item">
-                    Home 
+                    <a href = "" class="link-dark" >Home</a>
                 </div>
                 <div class="menu-item">
-                    Search for posts
+                    <a href = "" class="link-dark" >Search for posts</a>
                 </div>
                 <div class="menu-item">
-                    Search for users
+                    <a href = "" class="link-dark" >Search for users</a>
                 </div>
                 <div class = "menu-item-left">
-                    Notifications icon 
-                    <button class="btn btn-secondary" @click="viewProfile" id="vewProfileButton"> Profile </button>
-                    <button class="btn btn-secondary" @click="newPost" id="newPostButton"> Post some code </button>
+                    <a href = "" class="link-dark" >notifications</a>
+                    <a href = "{{ route('user.profile', ['id' => 1]) }}" class="link-dark" >Profile</a>
+                    <a href = "{{ route('...', ['id' => 1])" > Post some code </a>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 
     <div>
         @yield('content')
@@ -81,11 +81,6 @@
         .body{
             background-color: #BBEEDD;
         }
-        /* .postButton{
-            height: 15px;
-            font-size:10px;
-            margin: 5px;
-        } */
         .writeNewPost{
             display: flex;
             height: 30px;

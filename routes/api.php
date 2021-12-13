@@ -23,10 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users', [UserController::class, 'apiIndex']) ->name('api.users.index');
 
-Route::post('/home', [CommentController::class, 'apiStore']) ->name('api.comments.store');
+//display comments of a specific post
+Route::get('/auth/post/{id}', [CommentController::class, 'apiPostComments']) ->name('api.post.comments');
 
-Route::get('/home', [PostController::class, 'apiIndex']) ->name('api.posts.index');
+Route::post('auth/post/{id}', [CommentController::class, 'apiCommentStore']) ->name('api.comments.store');
 
 Route::get('/profile/{id}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');
 
-//Route::get('/home', [CommentController::class, 'apiPostComments']) ->name('api.comments.index');
+//Route::get('/auth/home', [CommentController::class, 'apiPostComments']) ->name('api.comments.index');

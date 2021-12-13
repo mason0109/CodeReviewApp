@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -47,7 +48,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -94,7 +95,17 @@ class CommentController extends Controller
     }
 
     public function apiPostComments($id){
-        $comments = Post::findOrFail($id)->comments;
+        $post = Post::findOrFail($id);
+        $comments = Post::findOrFail($id)->comments()->get();
         return $comments;
+    }
+
+    public function apiCommentStore(Request $request){
+        $validatedData = $request->validate([
+            'comment_content' => ['required', 'max:400'],
+        ]);
+
+        $c = new Comment();
+        $c->comment_content = $validatedData['comment_content'];
     }
 }

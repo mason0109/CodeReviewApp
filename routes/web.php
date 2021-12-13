@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/profile/{id}', [UserController::class, 'show']);
+Route::get('/profile/{id}', [UserController::class, 'show']) ->middleware('auth') ->name('user.profile');
 
 //Route::get('/users', [UserController::class, 'index']);
 
@@ -35,10 +35,13 @@ Route::post('/users', [UserController::class, 'store']) ->name('users.store');
 
 Route::get('/users/{id}', [UserController::class, 'show']);
 
-//home page
-Route::get('/home', [PostController::class, 'index']) ->middleware('auth')->name('home'); 
-
 //Sign in 
-Route::get('/home', [UserController::class, 'auth']) ->name('user.home');
+Route::get('/auth/home', [UserController::class, 'auth']) ->name('user.home');
+
+//View a post
+Route::get('/auth/post/{id}', [PostController::class, 'show']) ->name('post.show');
+
+//Create new post
+
 
 require __DIR__.'/auth.php';

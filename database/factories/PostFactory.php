@@ -28,9 +28,6 @@ class PostFactory extends Factory
             'title' => $this->faker->unique()->realtext($maxNbChars = 100, $indexSize = 2),
             'description' => $this->faker->realtext($maxNbChars = 200, $indexSize = 2),
             'document_upload' => $this->faker->realtext($maxNbChars = 50, $indexSize = 2),
-            'num_of_likes' => $this->faker->randomNumber($nbDigits = NULL),
-            'num_of_comments' => $this->faker->randomNumber($nbDigits = NULL),
-            'num_of_reviews' => $this->faker->randomNumber($nbDigits = NULL),
         ];
     }
 }

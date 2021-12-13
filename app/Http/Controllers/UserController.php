@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -102,9 +103,19 @@ class UserController extends Controller
         //
     }
 
-    public function auth(){
+    public function auth(Request $request){
+
         $posts = Post::all();
         return view('posts.index', ['posts' => $posts]);
+        
+        // $details = $request->only('username');
+
+        // if (Auth::attempt($details)) {
+        //     $posts = Post::all();
+        //     return redirect()->intended('posts.index', ['posts' => $posts]);
+        // } else {
+        //     return "Not Authenticated.";
+        // }
     }
 
     public function apiIndex()
