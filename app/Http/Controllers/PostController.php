@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -26,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +38,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => ['required', 'max:225'],
+            'description' => ['required', 'max:225',],
+            'document_upload'=> ['required', 'max:225'],
+        ]);
+
+        $p = new Post();
+        $p->user_id = Auth::id();
+        $p->title = $validatedData['title'];
+        $p->description = $validatedData['description'];
+        $p->document_upload = $validatedData['document_upload'];
+        $p->save();
+
+        session()->flash('Message', 'Post created!');
+        return redirect()->route('user.home');
     }
 
     /**

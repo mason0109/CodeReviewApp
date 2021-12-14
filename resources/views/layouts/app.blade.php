@@ -27,7 +27,7 @@
                     <a href = "{{ route('user.profile', ['id' => Auth::id()]) }}" class="link-dark" >Profile</a>
                 </div>
                 <div class="menu-item">
-                    <a href = "" class="link-dark" >New Post</a>
+                    <a href = "{{route('post.create')}}" class="link-dark" >New Post</a>
                 </div>
                 <div class = "menu-item-left">
                     <form method="POST" action="{{route('logout')}}">

@@ -54,7 +54,7 @@ class UserController extends Controller
         $u->save();
 
         session()->flash('Message', 'Account created!');
-        return redirect()->route('home');
+        return redirect()->route('user.home');
     }
 
     /**

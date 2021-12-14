@@ -68,6 +68,7 @@
                 })
             },
             methods:{
+                
 
                 increaseLike:function(){
                     alert("increase like")
