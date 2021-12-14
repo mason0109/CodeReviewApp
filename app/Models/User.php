@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name', 'username', 'email', 'type', 'password',
+        'name', 'username', 'email', 'type', 'password', 'follower_id'
     ];
 
     /**
@@ -47,6 +47,19 @@ class User extends Authenticatable
     public function image()
     {
         return $this->hasOne(Image::class);
+    }
+
+    /**
+     *  Gets the users that this user is 'following'.
+     */
+    public function following()
+    {
+        return $this->belongsToMany(User::class, null, 'follower_id', 'user_id' );
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, null, 'user_id', 'follower_id' );
     }
 
 }

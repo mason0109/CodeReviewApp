@@ -126,7 +126,7 @@ class UserController extends Controller
 
     public function apiUserPosts($id)
     {
-        $posts = User::findOrFail($id)->posts();
+        $posts = User::findOrFail($id)->posts()->get();
         return $posts;
     }
 }

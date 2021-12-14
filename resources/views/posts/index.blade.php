@@ -29,7 +29,7 @@
                         </div>
 
                         @if (($post->user_id == Auth::id()) || (Auth::User()->type == "admin"))
-                            <div class = "menu-item-left">
+                            <!-- <div class = "menu-item-left">
                                 <form method="GET" action="{{route('posts.edit', ['id' => $post->id])}}">
                                     <input type="submit" value="Edit" >
                                 </form>
@@ -38,7 +38,7 @@
                                     @method('DELETE')
                                     <input type="submit" value="Delete" >
                                 </form>
-                            </div>
+                            </div> -->
                         @endif
                     </div>
                 </div>

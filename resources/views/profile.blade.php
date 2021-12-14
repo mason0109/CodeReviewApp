@@ -9,45 +9,45 @@
             <h2 class="p-3 mb-2 bg-info text-white">{{$user->username}}'s Profile</h2>
             </div>
             <div id="alluserposts">
-                <ul>
-                    <li v-for="post in posts">
-                        <div class="post-display">
-                        <div class="post-title">
-                            <u> @{{ post.title }}  </u>
-                            <u> by @{{ post.user_id }} </u>
-                        </div>
-                        <div class="post-description">
-                            @{{post.description}}
-                        </div>
-                        <div class="post-content">
-                        @{{ post.upload }}
-                        </div>
-                        <div class="post-bottom">
-                            <div class = "bottom-item">
-                                Likes: @{{post.num_of_likes}}
-                                <div class = "postButton">
-                                    <button @click="increaseLike()" id="likeButton">Like</button>
+                <div class = "row">
+                    <div class="card mb-3 col" style="width: 50rem;">
+                        <div v-for="post in posts">
+                            <div class="card-header text-white bg-secondary">
+                                <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
+                                <u class="link-dark"> by @{{post.user_id}} </u>
+                            </div>
+                    
+                            <div class="card-body ">
+                                <div class="post-description">
+                                    @{{post.description}}
                                 </div>
-                            </div>
-                            <div class = "bottom-item">
-                                Reviews: @{{post.num_of_reviews}}
-                                <div class = "postButton">
-                                    <button @click="review" id="reviewButton">Review Post</button>
+                                <div class="post-content">
+                                    @{{post.upload }}
                                 </div>
+                                <div id="postbuttons" class="postButton card-footer text-muted">
+                                    Likes: @{{post.num_of_likes}} 
+                                    Reviews: @{{post.num_of_reviews}}
+                                </div>  
                             </div>
-                            <div class = "bottom-item">
-                                Comments: @{{post.num_of_comments}}
-                                <div class = "postButton">
-                                    <button @click="showComments" id="allComments">View all</button>
-                                <input type="text" id="commentbox" v-model="newComment">
-                                <button @click="comment" id="commentButton">Comment</button>
-                            </div>
+
+                            @if (($post.user_id == Auth::id()) || (Auth::User()->type == "admin"))
+                                <div class = "menu-item-left">
+
+                                    <form method="GET" action="{{route('posts.edit', ['id' => @{{post.id}} ])}}">
+                                        <input type="submit" value="Edit" >
+                                    </form>
+                                    <form method="POST" action="{{route('posts.delete', ['id' => $post->id])}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="Delete" >
+                                    </form>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </div>
+            </div>
+        
 
     <script>
             var app = new Vue ({
@@ -59,7 +59,7 @@
                 }, 
             mounted() {
             
-            axios.get("{{route('api.users.userPosts', ['id' => $user->id])}}")
+            axios.get("{{route('api.users.userPosts', ['id' => Auth::id()])}}")
                 .then(response=>{
                     this.posts = response.data;
                 })
@@ -68,8 +68,6 @@
                 })
             },
             methods:{
-                
-
                 increaseLike:function(){
                     alert("increase like")
                 },
