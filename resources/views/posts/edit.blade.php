@@ -5,10 +5,9 @@
 @section('content')
 
     <div class="Form">
-        <form method="POST" action="{{ route ('post.store') }}">
+        <form method="POST" action="{{ route ('posts.update', ['id' => $post->id]) }}">
             @csrf
-            <h1 style="text-align: center"> Please register below!</h1>
-
+            @method('PATCH')
             @if ($errors->any())
                 <div class = "error-message">
                     Errors:
@@ -21,15 +20,11 @@
             @endif
 
             <p> Title: <input type="text" name = "title" 
-                value="{{ old('title') }}"> </p>
+                value="{{$post->title}}"> </p>
             <p> Description:  <input type="text" name="description" 
-                value="{{ old('description') }}"> </p>
-            <p> File: <input type="text" name="file"> </p>
+                value="{{$post->description}}"> </p>
+            <p> File: <input type="text" name="document_upload"> </p>
             <p> Image File: <input type="text" name="image"> </p>
             <input type="submit" value="submit">
-
-            <a href="{{ route('welcome') }}">
-                    {{ __('Already registered?') }}
-            </a>
         </form>
     </div>

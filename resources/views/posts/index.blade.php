@@ -30,7 +30,7 @@
 
                         @if (($post->user_id == Auth::id()) || (Auth::User()->type == "admin"))
                             <div class = "menu-item-left">
-                                <form method="GET" action="{{route('posts.edit')}}">
+                                <form method="GET" action="{{route('posts.edit', ['id' => $post->id])}}">
                                     <input type="submit" value="Edit" >
                                 </form>
                                 <form method="DELETE" action="{{route('posts.delete')}}">
