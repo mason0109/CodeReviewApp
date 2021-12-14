@@ -8,10 +8,11 @@
         <ul>
             @foreach ($posts as $post)
                 <div class = "row">
-                    <div class="card mb-3" style="width: 35rem;">
+                    
+                    <div class="card mb-3 col" style="width: 50rem;">
                         <div class="card-header text-white bg-secondary">
-                            <u> <a href = "{{route('post.show', ['id' => $post->id])}}">{{$post->title}} </a> </u>
-                            <u> by {{$post->user_id}} </u>
+                            <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
+                            <u class="link-dark"> by {{$post->user_id}} </u>
                         </div>
                     
                         <div class="card-body ">
@@ -22,10 +23,8 @@
                                 {{ $post->upload }}
                             </div>
                             <div id="postbuttons" class="postButton card-footer text-muted">
-                                Likes: {{$post->num_of_likes}}
-                                <button  @click="increaseLike">Like</button>
+                                Likes: {{$post->num_of_likes}} 
                                 Reviews: {{$post->num_of_reviews}}
-                                <button @click="review">Review Post</button>
                             </div>  
                         </div>
                     </div>
@@ -39,12 +38,6 @@
         var postbuttons = new Vue ({
             el: "#postbuttons",   
             methods: {
-                increaseLike: function(){
-                    alert("increase like");
-                },
-                review: function(){
-                    alert("Review item");
-                },
             }
         });
         

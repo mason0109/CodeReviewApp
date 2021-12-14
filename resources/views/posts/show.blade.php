@@ -7,8 +7,8 @@
         <div class = "row">
             <div class="card-img-top" style="width: 35rem;">
                     <div class="card-header text-white bg-secondary">
-                        <u> <a href = "{{route('post.show', ['id' => $post->id])}}">{{$post->title}} </a> </u>
-                        <u> by {{$post->user->username}} </u>
+                        <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
+                        <u class="link-dark">  by {{$post->user->username}} </u>
                     </div>
                     
                     <div class="card-body ">

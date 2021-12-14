@@ -24,19 +24,16 @@
                     <a href = "" class="link-dark" >Home</a>
                 </div>
                 <div class="menu-item">
-                    <a href = "" class="link-dark" >Search for posts</a>
+                    <a href = "{{ route('user.profile', ['id' => Auth::id()]) }}" class="link-dark" >Profile</a>
                 </div>
                 <div class="menu-item">
-                    <a href = "" class="link-dark" >Search for users</a>
+                    <a href = "" class="link-dark" >New Post</a>
                 </div>
                 <div class = "menu-item-left">
-                    <a href = "" class="link-dark" >notifications</a>
-                    <a href = "{{ route('user.profile', ['id' => 1]) }}" class="link-dark" >Profile</a>
-                    <a href = ""> Post Something </a>
-                    <hr>
                     <form method="POST" action="{{route('logout')}}">
-                        <input type="submit" value="Log Out">
+                        <input type="submit" value="Log Out" >
                     </form>
+                    
                 </div>
             </div>
         </div>
