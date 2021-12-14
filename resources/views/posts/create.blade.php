@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="bg-cover bg-center">
+    <div class="bg-cover bg-center mx-auto">
         <form method="POST" action="{{ route ('post.store') }}">
             @csrf
 

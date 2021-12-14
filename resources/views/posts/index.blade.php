@@ -4,17 +4,16 @@
 
 @section('content')
     <p> Recent posts...</p>
-    <div id="allposts">
-        <ul>
+    <div id="allposts" class="mx-auto">
             @foreach ($posts as $post)
-                <div class = "row">
-                    
-                    <div class="card mb-3 col" style="width: 50rem;">
+                
+                    <div class="card mb-3 mx-auto" style="width: 55rem;">
                         <div class="card-header text-white bg-secondary">
                             <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
                             <u class="link-dark"> by {{$post->user_id}} </u>
                         </div>
-                    
+
+                        <img class="card-img-top imgsizing mx-auto" src= "{{$post->image()->path}}" alt="Card image cap">
                         <div class="card-body ">
                             <div class="post-description">
                                 {{$post->description}}
@@ -41,10 +40,11 @@
                             </div>
                         @endif
                     </div>
-                </div>
-                @endforeach
-            </div>
-        </ul>
+                    </div>
+                
+            @endforeach
+        </div>
+        
     </div>   
 
     <script>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="Form">
+    <div class="Form mx-auto">
         <form method="POST" action="{{ route ('posts.update', ['id' => $post->id]) }}">
             @csrf
             @method('PATCH')

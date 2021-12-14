@@ -3,14 +3,14 @@
 @section('title', $post->title)
 
 @section('content')
-    <div id="post">
-        <div class = "row">
-            <div class="card mb-3 col" style="width: 35rem;">
+    <div id="post" class="mx-auto">
+            <div class="card mb-3 mx-auto" style="width: 55rem;">
                     <div class="card-header text-white bg-secondary">
                         <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
                         <u class="link-dark">  by {{$post->user->username}} </u>
                     </div>
                     
+                    <img class="card-img-top imgsizing mx-auto" src= "{{$post->image()->path}}" alt="Card image cap">
                     <div class="card-body ">
                         <div class="post-description">
                             {{$post->description}}
@@ -25,6 +25,7 @@
                             <button @click="review">Review Post</button>
                         </div>  
                     </div>
+
                 </div>
              </div>
         <div class = "row">
@@ -54,7 +55,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 

@@ -105,6 +105,11 @@
         .error-messgae{
             color: red;
         }
+        .imgsizing{
+            height: 260px;
+            width: 260px;
+            margin: 10px;
+        }
     </style>
 
     <scirpt>
