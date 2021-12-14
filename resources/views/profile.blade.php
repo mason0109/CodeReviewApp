@@ -51,12 +51,26 @@
                 </div>
                 <div class="card-body ">
                     @foreach ($user->followers as $follower)
-                        
+                        <ul>
+                            <li>{{$follower->username}}</li>
+                        </ul>
+                    @endforeach
+                </div>
+            </div>
+            <div class = "card mb-3 col-8" style="width: 50rem;">
+                <div class="card-header text-white bg-secondary">
+                    Following:
+                </div>
+                <div class="card-body ">
+                    @foreach ($user->following as $follower)
+                        <ul>
+                            <li>{{$follower->username}}</li>
+                        </ul>    
                     @endforeach
                 </div>
             </div>
         
-
+            
     <script>
             var app = new Vue ({
                 el: "#alluserposts",

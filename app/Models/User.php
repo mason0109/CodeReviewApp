@@ -44,11 +44,6 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    public function image()
-    {
-        return $this->hasOne(Image::class);
-    }
-
     /**
      *  Gets the users that this user is 'following'.
      */

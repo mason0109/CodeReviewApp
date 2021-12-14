@@ -25,7 +25,16 @@ class UserTableSeeder extends Seeder
         $users = User::factory()->count(10)->create();
 
         foreach ($users as $user) { 
-            $user->followers()->attach(User::all()->random());
+            $follower = User::all()->random();
+            if ($follower->id != $user->id){
+                $user->followers()->attach($follower);
+            }
+        }
+        foreach ($users as $user) { 
+            $following = User::all()->random();
+            if ($following->id != $user->id){
+                $user->following()->attach($following);
+            }
         }
     }
 }

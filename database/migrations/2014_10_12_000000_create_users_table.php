@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('follower_id') ->nullable();
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

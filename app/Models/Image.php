@@ -9,12 +9,14 @@ class Image extends Model
 {
     use HasFactory;
 
-    /**
-     * Get the user of the post.
-     */
-    public function user()
+    protected $fillable = [
+        'path',
+        'post_id',
+    ];
+
+    public function post()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Post::class);
     }
     
 }

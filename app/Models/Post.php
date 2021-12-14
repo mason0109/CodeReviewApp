@@ -14,6 +14,7 @@ class Post extends Model
         'title',
         'description',
         'document_upload',
+        'image',
         'num_of_likes',
         'num_of_comments',
         'num_of_reviews',
@@ -25,6 +26,11 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function image()
+    {
+        return $this->hasOne(Image::class);
     }
 
     public function comments()
