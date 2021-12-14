@@ -12,8 +12,9 @@
                             <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
                             <u class="link-dark"> by {{$post->user_id}} </u>
                         </div>
-
-                        <img class="card-img-top imgsizing mx-auto" src= "{{$post->image()->path}}" alt="Card image cap">
+                        @if ($post->image != null)
+                        <img class="card-img-top imgsizing mx-auto" src= "{{$post->image->path}}" alt="Card image cap">
+                        @endif
                         <div class="card-body ">
                             <div class="post-description">
                                 {{$post->description}}
