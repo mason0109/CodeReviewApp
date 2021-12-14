@@ -23,5 +23,9 @@ class UserTableSeeder extends Seeder
         $u->save();
         
         $users = User::factory()->count(10)->create();
+
+        foreach ($users as $user) { 
+            $user->followers()->attach(User::all()->random());
+        }
     }
 }

@@ -96,7 +96,7 @@ class CommentController extends Controller
 
     public function apiPostComments($id){
         $post = Post::findOrFail($id);
-        $comments = Post::findOrFail($id)->comments()->get();
+        $comments = $post->comments()->get();
         return $comments;
     }
 

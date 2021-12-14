@@ -5,7 +5,7 @@
 @section('content')
     <div id="post">
         <div class = "row">
-            <div class="card-img-top" style="width: 35rem;">
+            <div class="card mb-3 col" style="width: 35rem;">
                     <div class="card-header text-white bg-secondary">
                         <u> <a href = "{{route('post.show', ['id' => $post->id])}}" class="link-dark">{{$post->title}} </a> </u>
                         <u class="link-dark">  by {{$post->user->username}} </u>
@@ -27,7 +27,8 @@
                     </div>
                 </div>
              </div>
-            <div class ="card mb-3" style="width: 35rem;"> 
+        <div class = "row">
+            <div class="card mb-3 col" style="width: 35rem;"> 
                     <div class= "card-header text-white bg-secondary">
                         Comments: {{$post->num_of_comments}}
                     </div>
@@ -36,10 +37,10 @@
                             <div id="getcomments">
                                 <div v-for="comment in comments">
                                     <div class = "comment-author">
-                                        @{{comment->user_id}}
+                                        @{{comment.user_id}}
                                     </div>  
                                     <div class = "comment-content">
-                                        @{{comment->comment_content}}
+                                        @{{comment.comment_content}}
                                     </div>
                                     <div class = "postButton card-footer text-muted">
                                         <input type="text" id="commentbox" v-model="newcomment">
@@ -53,6 +54,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -71,28 +73,29 @@
                         .catch(response=>{
                             console.log(response);
                         })
-            },
-            methods: {
-                comment: function(){
-                        axios.post("{{route('api.comments.store', ['id' => $post->id ])}}", {
-                            comment_content: this.newcomment
-                        })
-                        .then (response=> {
-                            this.comments.push(pesponse.data);
-                            this.newcomment = '';
-                        })
-                        .catch(response=>{
-                            console.log(response);
-                        })
+                },
+                methods: {
+                    comment: function(){
+                        alert('hi');
+                            axios.post("{{route('api.comments.store', ['id' => $post->id ])}}", {
+                                comment_content: this.newcomment
+                            })
+                            .then (response=> {
+                                this.comments.push(response.data);
+                                this.newcomment = '';
+                            })
+                            .catch(response=>{
+                                console.log(response);
+                            })
+                    }
                 }
-            }
             
         });
 
         var postbuttons = new Vue ({
             el: "#postbuttons",   
             methods: {
-                 increaseLike: function(){
+                increaseLike: function(){
                     alert("increase like");
                 },
                 review: function(){
