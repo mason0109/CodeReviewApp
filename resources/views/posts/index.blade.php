@@ -27,6 +27,17 @@
                                 Reviews: {{$post->num_of_reviews}}
                             </div>  
                         </div>
+
+                        @if (($post->user_id == Auth::id()) || (Auth::User()->type == "admin"))
+                            <div class = "menu-item-left">
+                                <form method="GET" action="{{route('posts.edit')}}">
+                                    <input type="submit" value="Edit" >
+                                </form>
+                                <form method="DELETE" action="{{route('posts.delete')}}">
+                                    <input type="submit" value="Delete" >
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @endforeach

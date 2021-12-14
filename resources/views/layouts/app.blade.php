@@ -33,7 +33,6 @@
                     <form method="POST" action="{{route('logout')}}">
                         <input type="submit" value="Log Out" >
                     </form>
-                    
                 </div>
             </div>
         </div>
@@ -57,8 +56,9 @@
             margin: 5px;
         }
         .menu-item-left{
+            display: flex;
             padding: 6px;
-            margin: 6px;
+            margin: 10px;
             position: absolute;
             right: 0;
             transform: translateY(-20%);

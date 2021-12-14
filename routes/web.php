@@ -50,4 +50,10 @@ Route::get('/auth/post/new/1', [PostController::class, 'create']) ->name('post.c
 
 Route::post('/newpost', [PostController::class, 'store']) ->middleware('auth') ->name('post.store');
 
+//Edit a post 
+Route::get('/post/edit', [PostController::class, 'edit']) ->middleware('auth') ->name('posts.edit');
+
+//Delete a post
+Route::delete('/posts/delete', [PostController::class, 'delete']) ->middleware('auth') ->name('posts.delete');
+
 require __DIR__.'/auth.php';
