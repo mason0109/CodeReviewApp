@@ -56,6 +56,6 @@ Route::get('/post/edit/{id}', [PostController::class, 'edit']) ->middleware('aut
 Route::patch('/post/update/{id}', [PostController::class, 'update']) ->middleware('auth') ->name('posts.update');
 
 //Delete a post
-Route::delete('/posts/delete', [PostController::class, 'destroy']) ->middleware('auth') ->name('posts.delete');
+Route::delete('/posts/delete/{id}', [PostController::class, 'destroy']) ->middleware('auth') ->name('posts.delete');
 
 require __DIR__.'/auth.php';

@@ -114,6 +114,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+
+        return redirect()->route('user.home');
     }
 
     public function apiIndex()

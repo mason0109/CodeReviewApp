@@ -33,7 +33,9 @@
                                 <form method="GET" action="{{route('posts.edit', ['id' => $post->id])}}">
                                     <input type="submit" value="Edit" >
                                 </form>
-                                <form method="DELETE" action="{{route('posts.delete')}}">
+                                <form method="POST" action="{{route('posts.delete', ['id' => $post->id])}}">
+                                    @csrf
+                                    @method('DELETE')
                                     <input type="submit" value="Delete" >
                                 </form>
                             </div>
