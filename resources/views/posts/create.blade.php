@@ -24,7 +24,7 @@
             <p> Description:  <input type="text" name="description" 
                 value="{{ old('description') }}"> </p>
             <p> File: <input type="text" name="document_upload"> </p>
-            <p> Image File: <input type="text" name="image"> </p>
+            <p> Image url: <input type="text" name="image_path"> </p>
             <input type="submit" value="submit">
 
         </form>

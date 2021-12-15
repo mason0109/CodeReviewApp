@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Image;
 
 class PostController extends Controller
 {
@@ -50,6 +51,13 @@ class PostController extends Controller
         $p->description = $validatedData['description'];
         $p->document_upload = $validatedData['document_upload'];
         $p->save();
+
+        if ($request->input('image_path') != null){
+            $i = new Image();
+            $i->path = $request->image_path;
+            $i->post_id = $p->id;
+            $i->save();
+        }
 
         session()->flash('Message', 'Post created!');
         return redirect()->route('user.home');
