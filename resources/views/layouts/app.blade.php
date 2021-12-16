@@ -30,9 +30,7 @@
                     <a href = "{{route('post.create')}}" class="link-dark" >New Post</a>
                 </div>
                 <div class = "menu-item-left">
-                    <form method="POST" action="{{route('logout')}}">
-                        <input type="submit" value="Log Out" >
-                    </form>
+                    <a class="btn btn-primary" href="/logout">logout</a>
                 </div>
             </div>
         </div>

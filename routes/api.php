@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,11 @@ Route::get('/users', [UserController::class, 'apiIndex']) ->name('api.users.inde
 //display comments of a specific post
 Route::get('/auth/post/{id}', [CommentController::class, 'apiPostComments']) ->name('api.post.comments');
 
-Route::post('auth/post/{id}', [CommentController::class, 'apiCommentStore']) ->name('api.comments.store');
+Route::post('auth/post', [CommentController::class, 'apiCommentStore']) ->name('api.comments.store');
 
 Route::get('/profile/{id}', [UserController::class, 'apiUserPosts']) ->name('api.users.userPosts');
 
 //Route::get('/auth/home', [CommentController::class, 'apiPostComments']) ->name('api.comments.index');
+
+//to increase like 
+Route::post('/auth/post/like/{id}', [LikeController::class, 'apiStore']) ->name('api.post.like');

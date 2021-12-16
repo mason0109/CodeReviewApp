@@ -9,7 +9,7 @@
 
             <a href = {{route( 'login' )}}> Sign In </a>
 
-            <a href = {{route( 'users.create' )}}>Register</a>
+            <a href = {{ route('register') }}> Register</a>
     </div> 
 </div>
 

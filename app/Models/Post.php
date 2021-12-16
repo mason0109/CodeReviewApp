@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'user_id',
         'title',
@@ -42,4 +43,13 @@ class Post extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    /**
+     *  Gets the likes of this post.
+     */
+    public function likes()
+    {
+        return $this->belongsToMany(Like::class, null, 'post_id', 'user_id' );
+    }
+
 }

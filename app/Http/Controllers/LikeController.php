@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Like;
 use App\Models\Post;
 
-class CommentController extends Controller
+class LikeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +15,8 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        //
-        $comment = Comment::all(); 
-        return view('comments.index', ['comments' => $comments]);
+    {
+
     }
 
     /**
@@ -26,7 +26,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +37,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +48,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        // 
+        
     }
 
     /**
@@ -59,7 +59,7 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -71,7 +71,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -82,38 +82,28 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 
-    public function apiStore(Request $request){
-        $c = new Comment();
-        $c->author_id=$request['author_id'];
-        $c->comment_content=$request['comment_content'];
-        $c->num_of_comments=0;
-        $c->save();
-        return $c;
-    }
-
-    public function apiPostComments($id){
-        $post = Post::findOrFail($id);
-        $comments = $post->comments()->get();
-        return $comments;
-    }
-
-    public function apiCommentStore(Request $request){
-        $validatedData = $request->validate([
-            'comment_content' => ['required', 'max:400'],
-            'commentable_id' => ['required'],
-            'commentable_type' => ['required']
+    public function apiStore(Request $request)
+    {
+        $request->validate([
+            'post_id'=>['required'],
+            'user_id'=>['required'],
         ]);
+        
+        $p = Post::findOrFail($request['post_id']);
+        // $checkUser = $p->likes()->where('user_id', $request['user_id'])->exists();
 
-        $c = new Comment();
-        $c->author_id = Auth::id();
-        $c->comment_content = $validatedData['comment_content'];
-        $c->commentable_id = $validatedData['commentable_id'];
-        $c->commentable_type = $validatedData['commentable_type'];
-        $c->save();
+        //if ($checkUser == null){
+            $l = new Like();
+            $l->post_id = $request['post_id'];
+            $l->user_id = $request['user_id'];
+            $l->save();
+        //}
+        
+        $p->likes()->attach($l);
 
-        return $c;
+        return redirect()->route('api.post.comments', ['id' => $request['post_id']]);
     }
 }

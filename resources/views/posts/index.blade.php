@@ -23,8 +23,9 @@
                                 {{ $post->upload }}
                             </div>
                             <div id="postbuttons" class="postButton card-footer text-muted">
-                                Likes: {{$post->num_of_likes}} 
+                                Likes: {{$post->likes->count()}} 
                                 Reviews: {{$post->num_of_reviews}}
+                                Posted: {{$post->created_at}}
                             </div>  
                         </div>
 
@@ -42,7 +43,6 @@
                         @endif
                     </div>
                     </div>
-                
             @endforeach
         </div>
         

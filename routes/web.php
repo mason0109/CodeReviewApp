@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Services\Twitter;
 
+// app()->bind(Twitter::class, function($app) {
+//     return new Twitter();
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +19,17 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//bind takes in what class you want, and then what you want to
+//happen once its called
+
+
+// $t = app()->make(Twitter::class);
+
+// dd($t);
+
+//Route::get('/servicetesting', [UserController::class, serviceTesting]);
+
 Route::get('/dashboard', function(){
     return view('dashboard');
 }) -> middleware(['auth'])->name('dashboard');

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function serviceTesting(User $service)
+    {
+        dd(service);
+    }
     /**
      * Display a listing of the resource.
      *
