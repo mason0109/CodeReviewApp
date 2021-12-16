@@ -40,20 +40,20 @@
                             <div id="getcomments">
                                 <div v-for="comment in comments">
                                     <div class = "comment-author">
-                                        @{{comment.user_id}}, posted @{{comment.created_at}}
+                                        <p> @{{comment.user_id}}, posted @{{comment.created_at}} </p>
                                     </div>  
                                     <div class = "comment-content">
-                                        @{{comment.comment_content}}
+                                        <p> @{{comment.comment_content}} </p>
                                     </div>
-                                    
+                                </div>
+                                <div class = "postButton card-footer text-muted">
+                                <input type="text" id="commentbox" v-model="newcomment">
+                                <button @click="comment">Comment</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class = "postButton card-footer text-muted">
-                    <input type="text" id="commentbox" v-model="newcomment">
-                    <button @click="comment">Comment</button>
-                     </div>
+        
                     </div>
                 </div>
             </div>
@@ -68,6 +68,7 @@
                 newcomment: '',
                 commentableID: '{{$post->id}}',
                 commentableType: 'App\\Models\\Post',
+                userID: "{{Auth::id()}}",
             },
             mounted() {
                 axios.get("{{route ('api.post.comments', ['id' => $post->id ])}}")
@@ -84,6 +85,7 @@
                             comment_content: this.newcomment,
                             commentable_id: this.commentableID,
                             commentable_type: this.commentableType,
+                            user_id: this.userID,
                         })
                         .then (response=> {
                             this.comments.push(response.data);

@@ -4,6 +4,7 @@
     @section('title', 'CodeReviewProfile')
 
     @section('content')
+    <div id="alluserposts">
             <div class="p-3 mb-2 bg-info text-white profile-header">
             <img src = "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class = "img">
             <h2 class="p-3 mb-2 bg-info text-white">{{$user->username}}'s Profile</h2>
@@ -44,6 +45,7 @@
                         @endif
                     </div>
                 </div>
+                </div>
             @endforeach
             <div class = "card mb-3 col-8" style="width: 50rem;">
                 <div class="card-header text-white bg-secondary">
@@ -69,7 +71,7 @@
                     @endforeach
                 </div>
             </div>
-        
+
             
     <script>
             var app = new Vue ({

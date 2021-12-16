@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -104,11 +106,12 @@ class CommentController extends Controller
         $validatedData = $request->validate([
             'comment_content' => ['required', 'max:400'],
             'commentable_id' => ['required'],
-            'commentable_type' => ['required']
+            'commentable_type' => ['required'],
+            'user_id' => ['required'],
         ]);
 
         $c = new Comment();
-        $c->author_id = Auth::id();
+        $c->user_id = $validatedData['user_id'];
         $c->comment_content = $validatedData['comment_content'];
         $c->commentable_id = $validatedData['commentable_id'];
         $c->commentable_type = $validatedData['commentable_type'];
