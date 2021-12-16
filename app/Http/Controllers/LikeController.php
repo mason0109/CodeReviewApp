@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\User;
 use App\Services\Twitter;
+use App\Mail\UserNotification;
+use Illuminate\Support\Facades\Mail;
 
 class LikeController extends Controller
 {
@@ -94,16 +97,16 @@ class LikeController extends Controller
         ]);
         
         $p = Post::findOrFail($request['post_id']);
-        // $checkUser = $p->likes()->where('user_id', $request['user_id'])->exists();
 
-        //if ($checkUser == null){
-            $l = new Like();
-            $l->post_id = $request['post_id'];
-            $l->user_id = $request['user_id'];
-            $l->save();
-        //}
+        $l = new Like();
+        $l->post_id = $request['post_id'];
+        $l->user_id = $request['user_id'];
+        $l->save();
         
         $p->likes()->attach($l);
+
+        $u = User::findOrFail($request['user_id']);
+        Mail::to($u->email)->send(new UserNotification($u, $p, ""));
 
         return redirect()->route('api.post.comments', ['id' => $request['post_id']]);
     }

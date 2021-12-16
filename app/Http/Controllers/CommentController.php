@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Mail;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Services\Twitter;
+use App\Mail\UserNotification;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -117,6 +120,10 @@ class CommentController extends Controller
         $c->commentable_id = $validatedData['commentable_id'];
         $c->commentable_type = $validatedData['commentable_type'];
         $c->save();
+
+        $u = Auth::User();
+        $p = Post::findOrFail($validatedData['commentable_id']);
+        Mail::to($u->email)->send(new UserNotification($u, $p, $validatedData['comment_content']));
 
         return $c;
     }
