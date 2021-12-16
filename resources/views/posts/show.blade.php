@@ -25,6 +25,14 @@
                             Reviews: {{$post->num_of_reviews}}
                             <button @click="review">Review Post</button>
                             Posted: {{$post->created_at}}
+                            <hr>
+                            <p>
+                            <u> <a href = "{{route('post.twitter.like', ['id' => $post->id])}}" class="link-dark"> Like on Twitter </a> </u>
+                            <hr>
+                            <u> <a href = "{{route('twitter.comment', ['id' => $post->id])}}" class="link-dark"> Comment on Twitter </a> </u>
+                            <hr>
+                            <u> <a href = "{{route('post.twitter.retweet', ['id' => $post->id])}}" class="link-dark"> Retweet on Twitter </a> </u>
+                            </p>
                         </div>  
                     </div>
 
@@ -119,6 +127,7 @@
                 review: function(){
                     alert("Review item");
                 },
+                
             }
         });
             

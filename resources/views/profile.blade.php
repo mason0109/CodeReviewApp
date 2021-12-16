@@ -9,7 +9,14 @@
             <img src = "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" class = "img">
             <h2 class="p-3 mb-2 bg-info text-white">{{$user->username}}'s Profile</h2>
             </div>
-            @foreach ($posts as $post)
+            @if ($posts ->isEmpty())
+                 <div class="card mb-3 col-8" style="width: 50rem;">
+                    <div class="card-header text-white bg-secondary">
+                        <p> No posts yet! Why not upload something? </p>
+                    </div>
+                </div>
+            @endif
+            @foreach ($posts as $post) 
                 <div class = "row">
                     
                     <div class="card mb-3 col-8" style="width: 50rem;">

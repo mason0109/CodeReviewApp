@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Like;
 use App\Models\Post;
+use App\Services\Twitter;
 
 class LikeController extends Controller
 {
@@ -105,5 +106,11 @@ class LikeController extends Controller
         $p->likes()->attach($l);
 
         return redirect()->route('api.post.comments', ['id' => $request['post_id']]);
+    }
+
+    public function twitterLike($id)
+    {
+        $t = app()->make(Twitter::class);
+        $t->like($id);
     }
 }

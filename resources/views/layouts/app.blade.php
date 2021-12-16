@@ -21,7 +21,7 @@
         <div class = "menu-row">
             <div class="menu">
                 <div class="menu-item">
-                    <a href = "" class="link-dark" >Home</a>
+                    <a href = "{{route('user.home')}}" class="link-dark" >Home</a>
                 </div>
                 <div class="menu-item">
                     <a href = "{{ route('user.profile', ['id' => Auth::id()]) }}" class="link-dark" >Profile</a>

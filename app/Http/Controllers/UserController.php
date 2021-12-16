@@ -6,14 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Services\Twitter;
 
 class UserController extends Controller
 {
 
-    public function serviceTesting(User $service)
+    // adding 'Twitter $t' tells the system that there needs to be 
+    // a twitter instance passed in. This is dependancy injection
+    // Laravel used to auto resolution to make the connection that 
+    // the thing passed in is of a twitter instance, which it then 
+    // goes on to find there's a service container attached to it 
+    // and returns the singleton for Twitter.
+    public function servicetesting(User $service, Twitter $t)
     {
-        dd(service);
+        $t->tweet("This is a Tweet");
     }
+
     /**
      * Display a listing of the resource.
      *

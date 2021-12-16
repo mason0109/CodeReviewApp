@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 use App\Services\Twitter;
-
-// app()->bind(Twitter::class, function($app) {
-//     return new Twitter();
-// });
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +22,7 @@ use App\Services\Twitter;
 //happen once its called
 
 
-// $t = app()->make(Twitter::class);
-
-// dd($t);
-
-//Route::get('/servicetesting', [UserController::class, serviceTesting]);
+Route::get('/service/testing', [UserController::class, 'servicetesting']);
 
 Route::get('/dashboard', function(){
     return view('dashboard');
@@ -72,5 +66,11 @@ Route::patch('/post/update/{id}', [PostController::class, 'update']) ->middlewar
 
 //Delete a post
 Route::delete('/posts/delete/{id}', [PostController::class, 'destroy']) ->middleware('auth') ->name('posts.delete');
+
+Route::get('/post/twitter/response/{id}', [LikeController::class, 'twitterLike']) ->name('post.twitter.like');
+
+Route::get('/post/twitter/comment/response/{id}', [CommentController::class, 'twitterComment']) ->name('twitter.comment');
+
+Route::get('/post/twitter/retweet/response/{id}', [PostController::class, 'twitterRetweet']) ->name('post.twitter.retweet');
 
 require __DIR__.'/auth.php';

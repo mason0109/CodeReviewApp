@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Image;
+use App\Services\Twitter;
 
 class PostController extends Controller
 {
@@ -130,5 +131,11 @@ class PostController extends Controller
     {
         $posts = Post::all();
         return $posts;
+    }
+
+    public function twitterRetweet($id)
+    {
+        $t = app()->make(Twitter::class);
+        $t->retweet($id);
     }
 }

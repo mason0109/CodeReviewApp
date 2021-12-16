@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Services\Twitter;
 
 class CommentController extends Controller
 {
@@ -118,5 +119,11 @@ class CommentController extends Controller
         $c->save();
 
         return $c;
+    }
+
+    public function twitterComment($id)
+    {
+        $t = app()->make(Twitter::class);
+        $t->comment($id);
     }
 }
